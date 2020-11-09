@@ -14,7 +14,6 @@ public class Collision : MonoBehaviour
     void Start()
     {
         stone = GetComponent<GameObject>();
-        
     }
 
     void OnTriggerEnter(Collider col)
@@ -29,7 +28,6 @@ public class Collision : MonoBehaviour
         Date = sheetload.GetCell<string>(1, 1);
         var sheet = new ES3Spreadsheet();
 
-
         var getcounter = GameObject.Find("Player").GetComponent<SaveContinuous>();
 
         sheet.SetCell(0, 0, col.transform.position.x);
@@ -39,5 +37,4 @@ public class Collision : MonoBehaviour
 
         sheet.Save(Application.streamingAssetsPath + $"/DataCollect/{PlayerName}_{Date}/{spacecount}/xyz_StonesPositions.csv", true);
     }
-
 }

@@ -12,14 +12,26 @@ public class SaveContinuous : MonoBehaviour
 
     private CharacterController player;
     public float counter;
-    private float SpaceCount;
     private int spacecount;
-    private float countersuccess;
+    private int successcountfog;
+    private int successprevioustrial;
+
     private bool success = false;
+    int[] fogchoices = {28, 42, 56, 100000};
+
 
     void Start()
     {
         player = GetComponent<CharacterController>();
+        
+        // Random Fog settings
+
+        int rand = Random.Range(0, fogchoices.Length);
+        int result = fogchoices[rand];
+
+        //RenderSettings.fog = !RenderSettings.fog;
+        RenderSettings.fogStartDistance = result - 4;
+        RenderSettings.fogEndDistance = result;          
     }
 
     void FixedUpdate()
@@ -34,10 +46,8 @@ public class SaveContinuous : MonoBehaviour
 
         //t1.text = "Time: " + (counter - 3) + " sec";
 
-        if (Input.GetKeyDown("f"))
-        { // F toggles fog on/off
-            RenderSettings.fog = !RenderSettings.fog;
-        }
+
+        
         // Create a blank ES3Spreadsheet.
         var sheetload = new ES3Spreadsheet();
 
