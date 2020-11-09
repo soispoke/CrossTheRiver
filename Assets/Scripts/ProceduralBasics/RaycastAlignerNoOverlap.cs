@@ -15,8 +15,6 @@ public class RaycastAlignerNoOverlap : MonoBehaviour
     public string Date = "03_06_2020";
 
     // Start is called before the first frame update
-
-
     void Start()
     {
      PositionRaycast_second();
@@ -48,7 +46,6 @@ public class RaycastAlignerNoOverlap : MonoBehaviour
                 Debug.Log("name of collider 0 found " + collidersInsideOverlapBox[0].name);
             }
         }
-
     }
 
     void Pick_second(Vector3 positionToSpawn, Quaternion rotationToSpawn)
@@ -56,7 +53,6 @@ public class RaycastAlignerNoOverlap : MonoBehaviour
         scale = Random.Range(minitemXScale, maxitemXScale);
         Vector3 randScale = new Vector3(scale, 8, scale);
         int randomIndex = Random.Range(0, itemsToPickFrom.Length);
-
 
         var sheet = new ES3Spreadsheet();
 
@@ -67,11 +63,11 @@ public class RaycastAlignerNoOverlap : MonoBehaviour
 
         int spacecount = PlayerPrefs.GetInt("spacecount");
 
-        //sheet.Save($"C:/CrossTheRiver/RockData_set/RockData_{spacecount}.csv", true);
+        GameObject clone = Instantiate(itemsToPickFrom[randomIndex], positionToSpawn, rotationToSpawn);// Spawn the obstacle here
+        clone.transform.localScale = randScale;
 
+        //sheet.Save($"C:/CrossTheRiver/RockData_set/RockData_{spacecount}_new.csv", true);
 
-        GameObject clone = Instantiate(itemsToPickFrom[randomIndex], positionToSpawn, rotationToSpawn);
-        clone.transform.localScale = randScale;// Spawn the obstacle here
 
     }
 

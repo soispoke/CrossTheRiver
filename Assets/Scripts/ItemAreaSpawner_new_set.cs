@@ -12,9 +12,6 @@ public class ItemAreaSpawner_new_set : MonoBehaviour
     public float itemYSpread = 0;
     public float itemZSpread = 100;
 
-    public float minitemXScale = 5;
-    public float maxitemXScale = 13;
-
     public string PlayerName;
     public string Date;
     private string scale;
@@ -29,8 +26,8 @@ public class ItemAreaSpawner_new_set : MonoBehaviour
         string strspacecount = spacecount.ToString();
 
         var sheetrockload = new ES3Spreadsheet();
-        Debug.Log(Application.streamingAssetsPath + $"/RockData_set/RockData_{strspacecount}.csv");
-        sheetrockload.Load(Application.streamingAssetsPath + $"/RockData_set/RockData_{strspacecount}.csv");
+        Debug.Log(Application.streamingAssetsPath + $"/RockData_set/RockData_{strspacecount}_new.csv");
+        sheetrockload.Load(Application.streamingAssetsPath + $"/RockData_set/RockData_{strspacecount}_new.csv");
 
         int rowcount = sheetrockload.RowCount;
         Debug.Log("ROWCOUNT  " + rowcount);
