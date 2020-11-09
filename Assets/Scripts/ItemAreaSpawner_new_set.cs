@@ -26,11 +26,11 @@ public class ItemAreaSpawner_new_set : MonoBehaviour
         string strspacecount = spacecount.ToString();
 
         var sheetrockload = new ES3Spreadsheet();
-        Debug.Log(Application.streamingAssetsPath + $"/RockData_set/RockData_{strspacecount}_new.csv");
-        sheetrockload.Load(Application.streamingAssetsPath + $"/RockData_set/RockData_{strspacecount}_new.csv");
+        // Debug.Log(Application.streamingAssetsPath + $"/RockData_set/RockData_{strspacecount}.csv");
+        sheetrockload.Load(Application.streamingAssetsPath + $"/RockData_set/RockData_{strspacecount}.csv");
 
         int rowcount = sheetrockload.RowCount;
-        Debug.Log("ROWCOUNT  " + rowcount);
+        // Debug.Log("ROWCOUNT  " + rowcount);
         for (int i = 0; i < rowcount-2; i++)
         {
             x_pos = sheetrockload.GetCell<string>(0, i+2);
@@ -43,7 +43,7 @@ public class ItemAreaSpawner_new_set : MonoBehaviour
             float newz_pos = float.Parse(z_pos);
             float new_scale = float.Parse(scale);
 
-            Vector3 randPosition = new Vector3(newx_pos, newy_pos, newz_pos) + transform.position;
+            Vector3 randPosition = new Vector3(newx_pos, newy_pos, newz_pos);
 
             Vector3 randScale = new Vector3(new_scale, 8, new_scale);
 

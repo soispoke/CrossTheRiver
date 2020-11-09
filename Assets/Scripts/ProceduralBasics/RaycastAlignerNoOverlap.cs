@@ -8,7 +8,7 @@ public class RaycastAlignerNoOverlap : MonoBehaviour
     public float raycastDistance = 100f;
     public float overlapTestBoxSize = 1f;
     public LayerMask spawnedObjectLayer;
-    public float minitemXScale = 5;
+    public float minitemXScale = 6;
     public float maxitemXScale = 10;
     private float scale;
     public string PlayerName = "Player1";
@@ -27,24 +27,16 @@ public class RaycastAlignerNoOverlap : MonoBehaviour
 
         if (Physics.Raycast(transform.position, Vector3.down, out hit, raycastDistance))
         {
-
             Quaternion spawnRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-
             Vector3 overlapTestBoxScale = new Vector3(overlapTestBoxSize, overlapTestBoxSize, overlapTestBoxSize);
             Collider[] collidersInsideOverlapBox = new Collider[1];
             int numberOfCollidersFound = Physics.OverlapBoxNonAlloc(hit.point, overlapTestBoxScale, collidersInsideOverlapBox, spawnRotation, spawnedObjectLayer);
 
-            Debug.Log("number of colliders found " + numberOfCollidersFound);
-
             if (numberOfCollidersFound == 0)
             {
-                Debug.Log("spawned robot");
                 Pick_second(hit.point, spawnRotation);
             }
-            else
-            {
-                Debug.Log("name of collider 0 found " + collidersInsideOverlapBox[0].name);
-            }
+
         }
     }
 
@@ -57,18 +49,17 @@ public class RaycastAlignerNoOverlap : MonoBehaviour
         var sheet = new ES3Spreadsheet();
 
         sheet.SetCell(0, 0, positionToSpawn.x);
-        sheet.SetCell(1, 0, positionToSpawn.y);
-        sheet.SetCell(2, 0, positionToSpawn.z);
+        sheet.SetCell(1, 0, positionToSpawn.y+40);
+        sheet.SetCell(2, 0, positionToSpawn.z+110);
         sheet.SetCell(4, 0, scale);
 
         int spacecount = PlayerPrefs.GetInt("spacecount");
 
         GameObject clone = Instantiate(itemsToPickFrom[randomIndex], positionToSpawn, rotationToSpawn);// Spawn the obstacle here
         clone.transform.localScale = randScale;
+        sheet.Save($"C:/CrossTheRiver/RockData_set_new/RockData_{spacecount}.csv", true);
 
-        //sheet.Save($"C:/CrossTheRiver/RockData_set/RockData_{spacecount}_new.csv", true);
-
-
+    
     }
 
 }

@@ -7,11 +7,11 @@ public class SaveContinuous : MonoBehaviour
     public string PlayerName = "Player1";
     public string Date = "03_06_2020";
 
-    public Text t1;
-    public Text t2;
+    private Text t1;
+    private Text t2;
 
     private CharacterController player;
-    private float counter;
+    public float counter;
     private float SpaceCount;
     private int spacecount;
     private float countersuccess;
@@ -20,7 +20,6 @@ public class SaveContinuous : MonoBehaviour
     void Start()
     {
         player = GetComponent<CharacterController>();
-
     }
 
     void FixedUpdate()
@@ -45,10 +44,11 @@ public class SaveContinuous : MonoBehaviour
         sheetload.Load(Application.streamingAssetsPath + "/DataCollect_temp/PlayerAndDate.csv");
         PlayerName = sheetload.GetCell<string>(0, 1);
         Date = sheetload.GetCell<string>(1, 1);
-
+        
+        // TRIAL NUMBER
+        spacecount = PlayerPrefs.GetInt("spacecount");
         // Save some values into the spreadsheet.
         var sheet = new ES3Spreadsheet();
-
         if (counter < 0.02)
         {
             sheet.SetCell(0, 0, "");
@@ -67,9 +67,11 @@ public class SaveContinuous : MonoBehaviour
             sheet.SetCell(4, 1, "Y_ROT");
             sheet.SetCell(5, 1, "JUMP");
             sheet.SetCell(6, 1, "SUCCESS");
-            sheet.SetCell(7, 1, "TRIALCOUNT");
+            sheet.SetCell(7, 1, "TIME");
 
+            sheet.Save(Application.streamingAssetsPath + $"/DataCollect/{PlayerName}_{Date}/{spacecount}/PlayerData.csv", true);
         }
+
         else
         {
             sheet.SetCell(0, 0, counter);
@@ -85,14 +87,14 @@ public class SaveContinuous : MonoBehaviour
             // JUMP
             if (Input.GetKey(KeyCode.J))
             {
-            sheet.SetCell(5, 0, "1");
-            } else
+                sheet.SetCell(5, 0, "1");
+            }
+            else
             {
                 sheet.SetCell(5, 0, "0");
             }
 
             // SUCCESS
-
             if (transform.localPosition.x > -2 && transform.localPosition.x < 2 && transform.localPosition.z > 238 && transform.localPosition.z < 242)
             {
                 success = true;
@@ -105,13 +107,11 @@ public class SaveContinuous : MonoBehaviour
                 sheet.SetCell(6, 0, "0");
             }
 
-            // TRIAL NUMBER
-            spacecount = PlayerPrefs.GetInt("spacecount") ;
-            sheet.SetCell(7, 0, spacecount);
 
+            sheet.SetCell(7, 0, counter);
+            sheet.Save(Application.streamingAssetsPath + $"/DataCollect/{PlayerName}_{Date}/{spacecount}/PlayerData.csv", true);
 
         }
-        sheet.Save(Application.streamingAssetsPath +  $"/DataCollect/{PlayerName}_{Date}/PlayerData.csv", true);
 
     }
 }
