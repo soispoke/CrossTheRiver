@@ -7,38 +7,23 @@ using UnityEngine.UI;
 public class SceneReloader : MonoBehaviour
 {
     bool firstPlay;
-
+    private int spacecount;
+    private int Date;
 
     // Update is called once per frame
+
     void Update()
     {
         if (Input.GetKey(KeyCode.Space))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            spacecount = PlayerPrefs.GetInt("spacecount");
 
-            if (PlayerPrefs.HasKey("spacecount"))
-            {
-                int newspacecount = PlayerPrefs.GetInt("spacecount");
-                newspacecount = newspacecount + 1;
-                PlayerPrefs.SetInt("spacecount", newspacecount);
-                PlayerPrefs.Save();
-                Debug.Log("spacecount" + newspacecount);
-
-            }
-
-            else {
-                PlayerPrefs.SetInt("spacecount", 0);
-                int newspacecount = PlayerPrefs.GetInt("spacecount");
-                PlayerPrefs.Save();
-                Debug.Log("spacecount" + newspacecount);
-
-            }
-
-
-        }
-        if (Input.GetKey(KeyCode.P))
-        {
-            PlayerPrefs.DeleteAll();
+            int newspacecount = PlayerPrefs.GetInt("spacecount");
+            newspacecount = newspacecount + 1;
+            PlayerPrefs.SetInt("spacecount", newspacecount);
+            PlayerPrefs.Save();
+            Debug.Log("spacecount" + newspacecount);
         }
     }
 }

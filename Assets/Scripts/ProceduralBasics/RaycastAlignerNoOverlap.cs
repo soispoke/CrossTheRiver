@@ -11,8 +11,6 @@ public class RaycastAlignerNoOverlap : MonoBehaviour
     public float minitemXScale = 6;
     public float maxitemXScale = 10;
     private float scale;
-    public string PlayerName = "Player1";
-    public string Date = "03_06_2020";
 
     // Start is called before the first frame update
     void Start()
@@ -57,7 +55,7 @@ public class RaycastAlignerNoOverlap : MonoBehaviour
 
         GameObject clone = Instantiate(itemsToPickFrom[randomIndex], positionToSpawn, rotationToSpawn);// Spawn the obstacle here
         clone.transform.localScale = randScale;
-        sheet.Save($"C:/CrossTheRiver/RockData_set_new/RockData_{spacecount}.csv", true);
+        //sheet.Save($"C:/CrossTheRiver/RockData_set_new/RockData_{spacecount}.csv", true);
 
     
     }

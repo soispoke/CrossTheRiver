@@ -12,8 +12,6 @@ public class ItemAreaSpawner_new_set : MonoBehaviour
     public float itemYSpread = 0;
     public float itemZSpread = 100;
 
-    public string PlayerName;
-    public string Date;
     private string scale;
     private string x_pos;
     private string y_pos;

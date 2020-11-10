@@ -14,11 +14,11 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
-  m_LinearFogStart: 42
+  m_LinearFogStart: 48
   m_LinearFogEnd: 56
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
@@ -5734,7 +5734,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155333711}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 773d9df9733e25a4c98de4ea7fe3800a, type: 3}
   m_Name: 
@@ -5755,7 +5755,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155333711}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3932fb2b86083246af19e36f5505754, type: 3}
   m_Name: 
@@ -7581,10 +7581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66919c9bbd1973e4cb0866ebaaabff35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerName: Player1
-  Date: 03_06_2020
-  t1: {fileID: 0}
-  t2: {fileID: 0}
+  counter: 0
 --- !u!1001 &1513525533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8759,8 +8756,6 @@ MonoBehaviour:
   itemXSpread: 100
   itemYSpread: 0
   itemZSpread: 100
-  PlayerName: Player1
-  Date: 03_06_2020
 --- !u!1001 &1907277274
 PrefabInstance:
   m_ObjectHideFlags: 0
