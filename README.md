@@ -18,6 +18,7 @@ All stones are now the same size for convenience
 New Web GL build : Loading and reading json files for RockData is now working !
 
 4 levels of fogs : No Fog / Fog Level 1 = 28 / Fog level 2 = 42 / Fog level 3 = 56
+Stone size = 7
 
 To do : 
 
