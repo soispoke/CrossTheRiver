@@ -1,6 +1,6 @@
-## CrossTheRiver
+## Welcome to Cross The River
 
-How to play :
+Here is how to play the game.
 
 When you launch the game, you will be presented with a Menu window in which you have to enter your name, and the date. 
 After you read the instructions, and you are ready to play, you just have to press Enter and the game is launched! 
@@ -12,7 +12,7 @@ Oh and one more thing. To make it more difficult, a black fog will sometimes app
 
 Have fun (and don't fall) !
 
-Notes :
+##Notes :
 
 All stones are now the same size for convenience 
 New Web GL build : Loading and reading json files for RockData is now working !
