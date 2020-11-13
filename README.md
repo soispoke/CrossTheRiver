@@ -1,6 +1,6 @@
-# CrossTheRiver
+## CrossTheRiver
 
-How to play
+How to play :
 
 When you launch the game, you will be presented with a Menu window in which you have to enter your name, and the date. 
 After you read the instructions, and you are ready to play, you just have to press Enter and the game is launched! 
