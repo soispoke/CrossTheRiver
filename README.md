@@ -25,4 +25,3 @@ To do :
 Find a convenient way to save continuous data for each trial on Firebase (most important)
 Collision : Now saving where the avatar collided with a capsule collider mesh around each stone (want to save coordinates of each stones' center instead ?)
 For now, randomly chosing fog level every trial (but maybe we should set it so all players have the same level of fog for each trial)
-
