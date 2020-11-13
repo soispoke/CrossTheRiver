@@ -12,7 +12,7 @@ Oh and one more thing. To make it more difficult, a black fog will sometimes app
 
 Have fun (and don't fall) !
 
-##Notes :
+## Notes :
 
 All stones are now the same size for convenience 
 New Web GL build : Loading and reading json files for RockData is now working !
