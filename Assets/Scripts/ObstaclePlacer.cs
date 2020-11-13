@@ -19,15 +19,12 @@ public class ObstaclePlacer : MonoBehaviour
         bound = new Bounds[AmountToSpawn];
         tempObs = new GameObject[AmountToSpawn];
         StartCoroutine(spawn(obstacles));
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
-
 
     public IEnumerator spawn(GameObject[] objs)
     {
@@ -47,19 +44,12 @@ public class ObstaclePlacer : MonoBehaviour
                 {
                     tempObs[i] = (GameObject)Instantiate(objs[Random.Range(0, 2)], targ.transform.position, Quaternion.identity);
                     bound[i] = tempObs[i].GetComponent<Collider>().bounds;
-
-
                 }
-
                 num++;
             }
-
             Debug.Log(num);
         }
-
         yield return null;
-
-
     }
 
     bool hasCollisions(GameObject target)

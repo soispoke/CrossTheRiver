@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SimpleJSON;
+using System.IO;
 
 public class RaycastAlignerNoOverlap : MonoBehaviour
 {
@@ -8,16 +10,12 @@ public class RaycastAlignerNoOverlap : MonoBehaviour
     public float raycastDistance = 100f;
     public float overlapTestBoxSize = 1f;
     public LayerMask spawnedObjectLayer;
-    public float minitemXScale = 6;
-    public float maxitemXScale = 10;
-    private float scale;
 
     // Start is called before the first frame update
     void Start()
     {
-     PositionRaycast_second();
+        PositionRaycast_second();
     }
-
 
     void PositionRaycast_second()
     {
@@ -34,30 +32,28 @@ public class RaycastAlignerNoOverlap : MonoBehaviour
             {
                 Pick_second(hit.point, spawnRotation);
             }
-
         }
     }
 
     void Pick_second(Vector3 positionToSpawn, Quaternion rotationToSpawn)
     {
-        scale = Random.Range(minitemXScale, maxitemXScale);
-        Vector3 randScale = new Vector3(scale, 8, scale);
+        //// LOAD EXISTING DATA
+        //int randomIndex = Random.Range(0, itemsToPickFrom.Length);
+
+        //int spacecount = PlayerPrefs.GetInt("spacecount");
+        //GameObject clone = Instantiate(itemsToPickFrom[randomIndex], positionToSpawn, rotationToSpawn);// Spawn the obstacle here
+
+        // GENERATE NEW DATA
+
         int randomIndex = Random.Range(0, itemsToPickFrom.Length);
-
         var sheet = new ES3Spreadsheet();
-
         sheet.SetCell(0, 0, positionToSpawn.x);
-        sheet.SetCell(1, 0, positionToSpawn.y+40);
-        sheet.SetCell(2, 0, positionToSpawn.z+110);
-        sheet.SetCell(4, 0, scale);
+        sheet.SetCell(1, 0, positionToSpawn.y);
+        sheet.SetCell(2, 0, positionToSpawn.z);
 
         int spacecount = PlayerPrefs.GetInt("spacecount");
-
         GameObject clone = Instantiate(itemsToPickFrom[randomIndex], positionToSpawn, rotationToSpawn);// Spawn the obstacle here
-        clone.transform.localScale = randScale;
         //sheet.Save($"C:/CrossTheRiver/RockData_set_new/RockData_{spacecount}.csv", true);
-
-    
     }
 
 }

@@ -10,6 +10,9 @@ public class ItemAreaSpawner : MonoBehaviour
     public float itemXSpread = 10;
     public float itemYSpread = 0;
     public float itemZSpread = 10;
+    public float posz = 100;
+    public float posy = 40;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +25,7 @@ public class ItemAreaSpawner : MonoBehaviour
 
     void SpreadItem()
     {
-        Vector3 randPosition = new Vector3(Random.Range(-itemXSpread, itemXSpread), Random.Range(-itemYSpread, itemYSpread), Random.Range(-itemZSpread, itemZSpread));
+        Vector3 randPosition = new Vector3(Random.Range(-itemXSpread, itemXSpread), Random.Range(-itemYSpread, itemYSpread)+posy, Random.Range(-itemZSpread, itemZSpread)+ posz);
         GameObject clone = Instantiate(itemToSpread, randPosition, itemToSpread.transform.rotation);
     }
 }
